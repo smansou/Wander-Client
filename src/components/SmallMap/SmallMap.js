@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import GoogleMapReact from "google-map-react";
+import GoogleMapReact from "google-map-react"
 import "./smallMap.css";
 
 export default function SmallMap(props) {

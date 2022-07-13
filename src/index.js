@@ -16,7 +16,6 @@ import GlobalState from "./components/providers/GlobalState";
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-console.log(process.env.AUTH0_DOMAIN);
 
 root.render(
  <Auth0ProviderWithHistory>
