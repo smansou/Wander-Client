@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
 import ReactStreetview from "react-google-streetview";
+import GoogleStreetView from "react-google-streetview";
 import SmallMap from "../../SmallMap/SmallMap";
 import "./guessLocation.css";
 import distanceBetweenTwoCoordinates from "../../../utilities/calc";

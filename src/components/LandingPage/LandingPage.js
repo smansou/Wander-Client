@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import GlobeGl from "../Globe/GlobeGl";
 import LandingCard from "../../styled-components/landing-card/LandingCard";
 import earth3d from "../../assets/images/pngwing.png";
+import SmallMap from "../SmallMap/SmallMap";
 
 export default function LandingPage() {
   const { loginWithRedirect, logout, isAuthenticated, isLoading, user } =
@@ -32,6 +33,7 @@ export default function LandingPage() {
           </div>
           <div className="globe-wrapper">
             {/* <GlobeGl /> */}
+            <SmallMap />
           </div>
           
         </div>
