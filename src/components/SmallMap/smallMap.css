@@ -1,0 +1,27 @@
+.small-map-container{
+    position: absolute;
+    bottom: 20px ;
+    right: 10px;
+    z-index: 5;
+    height: 26%;
+    width: 17%;
+    background-color: #333;
+border-radius: 25px;
+   opacity: 0.70;
+   transition: 0.5s;
+   overflow: hidden;
+   display: flex;
+   flex-direction: column;
+
+
+}
+.guess-button{
+    height: 50px;
+}
+.small-map-container:hover{
+    height: 50%;
+    width: 30%;
+    opacity: 1;
+}
+
+

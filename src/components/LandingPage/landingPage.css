@@ -1,0 +1,110 @@
+.landing-navbar{
+  width: 100%;
+    padding: 30px;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    padding: 20px 40px;
+    z-index: 10;
+}
+
+.globe-container{
+    transform: translate(-180px, -230px);
+}
+@keyframes animateIn {
+    from {
+      transform: scale(0.6, 0.6);
+      opacity: 0.6;
+    }
+    to {
+      transform: scale(1,1);
+      opacity: 1;
+    }
+  }
+  
+  .seperator-svg{
+    transform: translateY(1px);
+  }
+  .animateIn .animateInLong {
+    animation-name: animateIn;
+    animation: forwards;
+    transition: all var(--speed) ease;
+    animation-name: animateIn;
+    animation-duration: 2s;
+    animation-direction: alternate;
+    animation-timing-function: linear;
+    animation-iteration-count: forwards;
+  }
+  .left-float>*{
+    z-index: 3;
+  }
+  
+  .animateInLong{
+    animation-duration: 1200ms;
+  
+  }
+  
+  .landing-container {
+    /* display: flex;
+      flex-direction: column; */
+    width: 100%;
+    /* height: 250vh; */
+    height: 100%;
+    background: url("../../assets/images/darkBlurVertical.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    background-color: #001E6C ;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    /* padding: 0 80px; */
+  }
+  
+  .landing-page-1 {
+    padding: 0;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .left-float {
+    width: 100%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+ 
+  .globe-wrapper{
+    width: 100%;
+    /* position: absolute ; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .landing-cards-container {
+    padding: 0 80px;
+    /* padding-left: 100px */
+    /* gap: 20px; */
+    /* padding: 40px 80px; */
+  }
+  .landing-page-2 {
+    display: flex;
+    flex-direction: column;
+    /* background-color:white; */
+    height: 100%;
+    width: 100%;
+  
+  }
+
+  @media (max-width: 1200px) {
+    .landing-page-2{
+        padding: 0 20px;
+    }
+    .landing-cards-container {
+    padding: 10px;
+    }
+  }
+  
