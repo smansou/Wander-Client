@@ -7,20 +7,20 @@ import GlobeGl from "../Globe/GlobeGl";
 import LandingCard from "../../styled-components/landing-card/LandingCard";
 import earth3d from "../../assets/images/pngwing.png";
 import SmallMap from "../SmallMap/SmallMap";
+import Footer from ".././Footer/Footer"
 
 export default function LandingPage() {
   const { loginWithRedirect, logout, isAuthenticated, isLoading, user } =
     useAuth0();
-    console.log(process.env.AUTH0_DOMAIN);
-
-  const navigateTo = useNavigate();
-
-  if (isAuthenticated) {
-    navigateTo("/home");
-  }
-
-  return (
-    <>
+    const navigateTo = useNavigate();
+    
+    if (isAuthenticated) {
+      navigateTo("/home");
+    }
+    
+    return (
+      <>
+     
       <div className="landing-container">
         <nav className="landing-navbar">
           LOGO
@@ -33,7 +33,6 @@ export default function LandingPage() {
           </div>
           <div className="globe-wrapper">
             {/* <GlobeGl /> */}
-            <SmallMap />
           </div>
           
         </div>
@@ -66,6 +65,7 @@ export default function LandingPage() {
               text={"lorem ipsum text here about game maybe some more info"}
             />
             <div className="ui divider"></div>
+            <Footer />
           </div>
         </div>
       </div>

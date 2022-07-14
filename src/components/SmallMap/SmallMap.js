@@ -28,7 +28,7 @@ const handleMapClick = (e) =>{
         }}
         defaultCenter={{ lat: 50, lng: 30 }}
         defaultZoom={11}
-        bootstrapURLKeys={{ key: process.env.GOOGLE_MAPS_API_KEY }}
+        bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_MAPS_API_KEY }}
         onClick={handleMapClick}
         >
           <div style={{display: showMarker}} lat={choiceCoords.lat} lng={choiceCoords.lng}>/\/\\/\/MARKER/\/\/\\\/\</div>

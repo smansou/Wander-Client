@@ -14,9 +14,9 @@ const Auth0ProviderWithHistory = ({ children }) => {
     };
     return (
         <Auth0Provider
-        domain={process.env.AUTH0_DOMAIN}
-        clientId={process.env.AUTH0_CLIENTID}
-        redirectUri="http://127.0.0.1:3000/home"
+        domain={process.env.REACT_APP_AUTH0_DOMAIN}
+        clientId={process.env.REACT_APP_AUTH0_CLIENTID}
+        redirectUri={process.env.REACT_APP_AUTH0_REDIRECT}
         onRedirectCallback={onRedirectCallback}
         >
           {children}  

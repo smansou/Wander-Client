@@ -80,9 +80,12 @@ export default function Homepage() {
           
         </div>
       </div>
-      <div className="ui divider"></div>
 
+      <div className="footer-container">
+      <div className="ui divider"></div>
       <Footer />
+      </div>
+     
     </div>
   );
 }

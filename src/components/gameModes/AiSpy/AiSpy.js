@@ -69,7 +69,7 @@ function AiSpy() {
       <div  ref={handleRef} className="game-wrapper">
    <button onClick={handleUserChoice} style={{position:"absolute", height: '40px', zIndex: '9'}}>predict</button>
         <ReactStreetview
-          apiKey={process.env.GOOGLE_MAPS_API_KEY}
+          apiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY}
           streetViewPanoramaOptions={streetViewPanoramaOptions}
         />
       </div>

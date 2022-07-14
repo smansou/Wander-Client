@@ -90,7 +90,9 @@ align-content: center;
   justify-content: center;
   
 }
-
+.footer-container{
+  padding: 0 80px
+}
 @media (max-width: 768px) {
   .home-page-1 {
     flex-direction: column;

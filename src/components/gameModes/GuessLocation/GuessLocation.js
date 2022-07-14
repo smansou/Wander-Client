@@ -59,7 +59,7 @@ function GuessLocation() {
       <div className="game-wrapper">
       { roundOver && <RoundOverSplash /> }
         <ReactStreetview
-          apiKey={process.env.GOOGLE_MAPS_API_KEY}
+          apiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY}
           streetViewPanoramaOptions={streetViewPanoramaOptions}
         />
 

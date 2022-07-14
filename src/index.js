@@ -22,12 +22,10 @@ root.render(
   <GlobalState>
       <Router>
         <Routes>
-          <Route path="/" element={<LandingPage />}>
-            
-          </Route>
-          <Route path="/AiSpy" element={<AiSpy />}></Route>
-          <Route path="/GuessLocation" element={<GuessLocation />}></Route>
-          <Route path="/Home" element={<Homepage />}></Route>
+          <Route exact path="/" element={<LandingPage />}></Route>
+          <Route exact path="/AiSpy" element={<AiSpy />}></Route>
+          <Route exact path="/GuessLocation" element={<GuessLocation />}></Route>
+          <Route exact path="/Home" element={<Homepage />}></Route>
         </Routes>
       </Router>
       </GlobalState>
