@@ -88,12 +88,17 @@ align-content: center;
 .stat-container{
   display: flex;
   justify-content: center;
+  margin-bottom: 60px;
   
 }
 .footer-container{
   padding: 0 80px
 }
-@media (max-width: 768px) {
+
+.banner-wrapper{
+  padding: 40px 100px;
+}
+@media (max-width: 1200px) {
   .home-page-1 {
     flex-direction: column;
     justify-content: center;
@@ -120,8 +125,9 @@ align-content: center;
   .cards-container{
     display: flex;
     flex-direction: column;
-    padding: 20px 20px;
+    padding: 20px 0;
     width:100%;
+    gap: 0px;
   }
 .card{
   width: 100%;
@@ -138,4 +144,19 @@ align-content: center;
 .page-2{
   padding: 0;
 }
+
+.banner-wrapper, .footer-container{
+  padding: 1px 1px;
+}
+
+.globe-wrapper-homepage{
+    width: 100%;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    transform: translateY(50px)
+  }
+
+
 }

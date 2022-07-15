@@ -1,39 +1,52 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import ReactStreetview from "react-google-streetview";
-import SmallMap from "../../SmallMap/SmallMap";
 import "./aiSpy.css";
-import distanceBetweenTwoCoordinates from "../../../utilities/calc";
 import html2canvas from "html2canvas";
 import * as ml5 from "ml5";
+import axios from 'axios';
+import { useAuth0 } from "@auth0/auth0-react";
+import { useNavigate, useParams } from "react-router-dom";
+import RoundOverSplash from "../../../styled-components/RoundOverSplash/RoundOverSplash";
 
 function AiSpy() {
-  const [mapActive, setMapActive] = useState(false);
   const [position, setPosition] = useState({ lat: -33.5344303 , lng: 25.78993 });
-  // const [img, setImg] = useState();
+  const [objectToFind, setObjectToFind] = useState();
+  // const [mapActive, setMapActive] = useState(false);
+  const [roundOver, setRoundOver] = useState(false);
   const [capture, setCapture] = useState();
   const [appRef, setAppRef] = useState();
-  const [model, setModel] = useState();
+  const navigateTo = useNavigate();
+  const {isAuthenticated } = useAuth0();
 
-
+if (!isAuthenticated) {
+    navigateTo("/");
+  }
   useEffect(() => {
-    const t = setTimeout(() => {
-      setMapActive(true);
-    }, 100);
-    return () => clearTimeout(t);
+
+    async function fetchMaps(){
+      try{
+      const {data: maps} = await axios.get(`http://127.0.0.1:5000/maps/aispy`);
+      const randomIndex = Math.floor(Math.random()*maps.length);
+          const {coordinates: {lat, lng}, objectToFind} = maps[randomIndex];
+          setPosition({lat: lat, lng: lng})
+          setObjectToFind(objectToFind);
+      }catch(err){console.log(err);}
+    }fetchMaps();
   }, []);
   
+
+  
+  const handleRef = (e) => {
+    setAppRef(e);
+  };
   const handleUserChoice = async () => {
     await captureElement();
 
   };
   
-  const handleRef = (e) => {
-    setAppRef(e);
-  };
   
   async function captureElement() {
     const canvas = await html2canvas(appRef);
-    
     setCapture(canvas);
     predict();
   } 
@@ -44,10 +57,12 @@ function AiSpy() {
       // const classifier = await ml5.imageClassifier("MobileNet");
       const classifier = await ml5.objectDetector('CocoSsd');
       // setModel(classifier);
-      const results = await classifier.detect(capture)
+      const results = await classifier.detect(capture);
+      console.log(results);
       // const results = await classifier.predict(imgRef.current);
-      if(results.length === 0) return console.log('no results');
-        console.log(results);
+      if(results.length === 0) return console.log('AI Could Not Detect The Object');
+      if(results[0].label === 'elephant') setRoundOver(true);
+    
     } catch (err){
       {console.log(err)}
   }
@@ -66,6 +81,7 @@ function AiSpy() {
 
   return (
     <>
+      {roundOver && <RoundOverSplash />}
       <div  ref={handleRef} className="game-wrapper">
    <button onClick={handleUserChoice} style={{position:"absolute", height: '40px', zIndex: '9'}}>predict</button>
         <ReactStreetview
@@ -73,7 +89,6 @@ function AiSpy() {
           streetViewPanoramaOptions={streetViewPanoramaOptions}
         />
       </div>
-      {/* {mapActive && <SmallMap getAnswer={handleUserChoice} />} */}
     </>
   );
 }

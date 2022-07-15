@@ -23,14 +23,11 @@
     }
   }
   
-  .seperator-svg{
-    transform: translateY(1px);
-  }
+ 
   .animateIn .animateInLong {
     animation-name: animateIn;
     animation: forwards;
     transition: all var(--speed) ease;
-    animation-name: animateIn;
     animation-duration: 2s;
     animation-direction: alternate;
     animation-timing-function: linear;
@@ -85,10 +82,10 @@
     align-items: center;
   }
   .landing-cards-container {
-    padding: 0 80px;
-    /* padding-left: 100px */
-    /* gap: 20px; */
-    /* padding: 40px 80px; */
+    padding: 0 300px;
+ 
+
+   
   }
   .landing-page-2 {
     display: flex;
@@ -96,15 +93,53 @@
     /* background-color:white; */
     height: 100%;
     width: 100%;
+    margin: 140px 0
   
   }
+ .mobile-only{
+  display: none !important;
+ }
 
   @media (max-width: 1200px) {
     .landing-page-2{
-        padding: 0 20px;
+        margin: 0px;
+    }
+    .mobile-only{
+      display: block !important;
+     }
+     
+
+    .ui.grid{
+      flex-wrap: nowrap !important;
     }
     .landing-cards-container {
-    padding: 10px;
+    padding: 20px;
+    margin: 0px;
+    
+    }
+
+    .globe-wrapper{
+      width: 100%;
+      /* position: absolute ; */
+      display: block;
+      justify-content: center;
+      align-items: center;
+      z-index: 1;
+    }
+    .scene-container>*{
+     
+      width: 850px !important;
+      height: 850px !important;
+
+    }
+    .scene-container{
+      width: 100% !important;
+      height: 100% !important;
+transform: translateY(-50px);
+      overflow: hidden;
+    }
+    canvas{
+      margin: 1px !important;
     }
   }
   

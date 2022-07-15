@@ -1,0 +1,40 @@
+
+.banner-container{
+    width: 100%;
+    height: 220px;
+    /* background-image: url("../../assets/images/object-detection.png"); */
+    overflow: hidden;
+    border-radius: 10px ;
+    border: 6px solid black;
+    
+
+}
+.banner-container>img{
+   filter:grayscale(30%);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px ;
+    transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    
+
+}
+.banner-container>img:hover{
+   transform: scale(1.05);
+    filter: grayscale(0%);
+        box-shadow: inset 10px 10px 10px #000000;
+
+
+}
+.banner-text{
+    position: absolute;
+    
+}
+
+@media(max-width: 1200px){
+    .banner-container{
+        height: 320px;
+    
+    }
+}

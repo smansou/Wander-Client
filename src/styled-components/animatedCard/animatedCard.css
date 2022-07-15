@@ -30,7 +30,7 @@
   }
   
 
-  
+
  
 
   
@@ -232,7 +232,7 @@
     align-self: center;
     justify-self: center;
     display: inline-block;
-    font-size: var(--fontSmall);
+    font-size: 12px;
     font-weight: var(--fontLight);
     text-align: center;
     letter-spacing: 0.35rem;
@@ -283,7 +283,7 @@
   
 
   
-  /* MODIFIERS */
+
   .card[data-effect="blur"]:hover .card__image img {
     -webkit-filter: blur(3px);
     filter: blur(3px);
@@ -312,3 +312,15 @@
     filter: grayscale(50%) contrast(80%) brightness(1.6);
     mix-blend-mode: normal;
   }
+
+
+  @media(max-width: 1200px){
+    
+    .card{
+         border-radius: 1px;
+         height: 100% ;
+     }
+    .card__image{
+         border-radius: 1px;
+     }
+   }

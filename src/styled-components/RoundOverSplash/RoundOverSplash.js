@@ -5,17 +5,18 @@ import SplashMap from "../../../src/components/SplashMap/SplashMap";
 import {useNavigate} from 'react-router-dom';
 
 
-export default function RoundOverSplash() {
+export default function RoundOverSplash(props) {
   const navigateTo = useNavigate();
 
   return (
     <div className='round-over-splash'>
         <div className="splash-container">
-            <div className="upper-splash">upper</div>
-            <div className="middle-splash"><SplashMap /> </div>
+            <div className="upper-splash">{props.title}</div>
+            <div className="middle-splash">{props.middle} </div>
             
-            <div className="lower-splash">lower</div>
+            <div className="lower-splash">{props.lower}</div>
             <button onClick={()=>navigateTo('/home')}>Continue</button>
+            <button onClick={()=>navigateTo('/home')}>Home</button>
 
         </div>
     </div>

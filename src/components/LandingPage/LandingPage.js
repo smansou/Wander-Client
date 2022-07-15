@@ -18,7 +18,7 @@ export default function LandingPage() {
       navigateTo("/home");
     }
     
-    return (
+    return isLoading ?  <div>Spinner</div> : (
       <>
      
       <div className="landing-container">
@@ -28,11 +28,11 @@ export default function LandingPage() {
         </nav>
         <div className="landing-page-1">
           <div className="left-float">
-            <h1 className="animateIn">Wander</h1>
-            <h2 className="animateIn">Let's Explore The World!</h2>
+            <h1 className="animateIn text-yellow">Wander</h1>
+            <h2 className="animateIn text-white">Let's Explore The World!</h2>
           </div>
           <div className="globe-wrapper">
-            {/* <GlobeGl /> */}
+            <GlobeGl />
           </div>
           
         </div>
@@ -51,23 +51,26 @@ export default function LandingPage() {
         </svg> */}
         <div className="landing-page-2">
           <div className="landing-cards-container">
+          <div className="ui divider mobile-only"></div>
             <LandingCard
               title="title1"
               text={"lorem ipsum text here about game maybe some more info"}
             />
+            <div className="ui divider mobile-only"></div>
             <LandingCard
               title="title1"
               imageURL={earth3d}
               text={"lorem ipsum text here about game maybe some more info"}
             />
+            <div className="ui divider mobile-only"></div>
             <LandingCard
               title="title1"
               text={"lorem ipsum text here about game maybe some more info"}
             />
-            <div className="ui divider"></div>
-            <Footer />
           </div>
         </div>
+            <div className="ui divider"></div>
+            <Footer />
       </div>
     </>
   );

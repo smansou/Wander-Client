@@ -18,6 +18,9 @@ html{
 .text-yellow{
   color: #FCD900;
 }
+.text-white{
+  color: #fff;
+}
 :root {
   --font: 'Sansita', sans-serif;
     --fontOrigin: 1rem;     /* 16px */
