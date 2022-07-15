@@ -14,6 +14,7 @@ import sydneyPic from "../.././assets/images/sydney.jpeg";
 import tropicsPic from "../.././assets/images/extreme-places-2.jpeg";
 import Footer from "../Footer/Footer";
 import Banner from "../../styled-components/banner/Banner";
+import RoundOverSplash from "../../styled-components/RoundOverSplash/RoundOverSplash";
 export default function Homepage() {
   const { loginWithRedirect, logout, isAuthenticated, isLoading, user } =
     useAuth0();
@@ -31,11 +32,11 @@ export default function Homepage() {
       <Navbar />
       <div className="home-page-1">
         <div className="left-float animateIn">
-          <h1 id="white">Wander</h1>
+          <h1 className="text-yellow">Wander</h1>
           <h2 id="white">Let's Explore The World!</h2>
         </div>
         <div className="globe-wrapper-homepage">
-          <GlobeGl />
+          {/* <GlobeGl /> */}
            </div>
         
       </div>

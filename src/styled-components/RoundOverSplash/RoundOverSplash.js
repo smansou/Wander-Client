@@ -14,10 +14,10 @@ export default function RoundOverSplash(props) {
             <div className="upper-splash">{props.title}</div>
             <div className="middle-splash">{props.middle} </div>
             
-            <div className="lower-splash">{props.lower}</div>
-            <button onClick={()=>navigateTo('/home')}>Continue</button>
-            <button onClick={()=>navigateTo('/home')}>Home</button>
-
+            <div className="splash-btn-container">
+            <button className='splash-btn btn1' onClick={()=>navigateTo('/guesslocation/world')}> <span>Continue</span></button>
+            <button className='splash-btn btn2' onClick={()=>navigateTo('/home')}> <span>Home</span></button>
+            </div>
         </div>
     </div>
   )

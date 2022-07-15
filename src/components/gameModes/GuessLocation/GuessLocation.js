@@ -8,6 +8,8 @@ import RoundOverSplash from "../../../styled-components/RoundOverSplash/RoundOve
 import Streetview from "../../Streetview/Streetview";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useNavigate, useParams } from "react-router-dom";
+import Statnav from "../../../styled-components/stat-navbar/Statnav";
+import SplashMap from "../../SplashMap/SplashMap"
 
 
 
@@ -17,6 +19,7 @@ function GuessLocation() {
   const [streetviewActive, setStreetviewActive] = useState(false);
   const [position, setPosition] = useState({ lat: 40.672401, lng: -73.993524 });
   const [roundOver, setRoundOver] = useState(false);
+  const [distance, setDistance] = useState();
   const navigateTo = useNavigate();
   const {mode} = useParams();
   const {isAuthenticated } = useAuth0();
@@ -48,6 +51,7 @@ function GuessLocation() {
       position.lat,
       position.lng
     );
+    setDistance(distance)
 
     let score = 1000 - (distance * 200) / 500;
     try{
@@ -72,8 +76,9 @@ function GuessLocation() {
 
   return (
     <>
+        <Statnav />
       <div className="game-wrapper">
-        {roundOver && <RoundOverSplash />}
+        {roundOver && <RoundOverSplash  title={`Well Done! You were ${Math.floor(distance)} KM away`}  middle={<SplashMap  position={position} />} />}
           <Streetview position={position} />
       
       </div>

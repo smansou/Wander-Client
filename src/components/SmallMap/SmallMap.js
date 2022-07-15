@@ -35,7 +35,7 @@ const handleMapClick = (e) =>{
         </GoogleMapReact>
         <button 
         onClick={e => props.getAnswer(choiceCoords.lat, choiceCoords.lng) }
-        style={{opacity:buttonState.opacity, backgroundColor: 'green'}}
+        style={{opacity:buttonState.opacity}}
          disabled={buttonState.disabled} 
          className="guess-button">GUESS
          </button>

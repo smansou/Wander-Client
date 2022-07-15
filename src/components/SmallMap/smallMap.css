@@ -17,6 +17,9 @@ border-radius: 25px;
 }
 .guess-button{
     height: 50px;
+    background-color: rgba(29, 10, 82, 0.472);
+    color: var(--yellow);
+    font-size: 1.3rem;
 }
 .small-map-container:hover{
     height: 460px;

@@ -316,11 +316,16 @@
 
   @media(max-width: 1200px){
     
+    
     .card{
          border-radius: 1px;
          height: 100% ;
+         max-width: 100%;
+         border: 2px solid black
+       
      }
     .card__image{
          border-radius: 1px;
+         width: 100%;
      }
    }

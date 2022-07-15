@@ -32,7 +32,7 @@ export default function LandingPage() {
             <h2 className="animateIn text-white">Let's Explore The World!</h2>
           </div>
           <div className="globe-wrapper">
-            <GlobeGl />
+            {/* <GlobeGl /> */}
           </div>
           
         </div>

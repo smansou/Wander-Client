@@ -10,7 +10,7 @@ export default function Navbar() {
         LOGO
         <div>
           <img className="ui avatar image" src={user.picture} />
-          <button onClick={() => logout({ returnTo: window.location.origin })}>
+          <button className="logout-btn" onClick={() => logout({ returnTo: window.location.origin })}>
             Log out
           </button>
         </div>
