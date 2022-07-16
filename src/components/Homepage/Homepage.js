@@ -26,9 +26,6 @@ export default function Homepage() {
   const globalState = useContext(GlobalContext);
   const { userState, setUserState } = globalState;
   const { inViewport } = useInViewport( anchorRef );
-
-
-
   if (!isAuthenticated) {
     navigateTo("/");
   }
@@ -37,11 +34,9 @@ export default function Homepage() {
     <Spinner />
   ) : (
     <div className="home-container">
-      {/* <Navbar /> */}
       <nav style={inViewport ? {position: 'fixed', background:'rgb(0,0,0,0.3' } : {position: 'absolute'} } className="landing-navbar">
           <div className="logo-container">
           <img onClick={()=>navigateTo('/home')}  style={inViewport ? {display: 'block', zIndex:'15' } : {display: 'none'}} className="logo fadeIn" src={logo} alt="logo" />
-         
           </div>
           <div>
           <img className="ui avatar image" src={user.picture} />
@@ -49,16 +44,14 @@ export default function Homepage() {
           Log Out
           </button>
           </div>
-          
-
         </nav>
       <div className="home-page-1">
         <div className="left-float animateIn">
           <h1 className="text-yellow">Wander</h1>
-          <h2 id="white">Let's Explore The World!</h2>
+          <h2 id="white">Teleport and Explore!</h2>
         </div>
         <div className="globe-wrapper-homepage">
-          {/* <GlobeGl /> */}
+          <GlobeGl />
            </div>
         
       </div>

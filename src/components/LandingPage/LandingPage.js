@@ -18,25 +18,25 @@ import Spinner from "../../styled-components/Spinner/Spinner";
 export default function LandingPage() {
   const anchorRef = useRef();
   const { inViewport } = useInViewport( anchorRef );
-  const { loginWithRedirect, isAuthenticated, isLoading, signUp } =
-    useAuth0();
+  const { loginWithRedirect, isAuthenticated, isLoading } = useAuth0();
     const navigateTo = useNavigate();
     
     if (isAuthenticated) {
       navigateTo("/home");
     }
+   
     
     return isLoading ? <Spinner />
     : (
       <>
-     
+     {console.log(inViewport)}
       <div className="landing-container">
         <nav style={inViewport ? {position: 'fixed'} : {position: 'absolute'} } className="landing-navbar">
           <div className="logo-container">
           <img onClick={()=>navigateTo('/home')} style={inViewport ? {display: 'block'} : {display: 'none'}} className="logo fadeIn" src={logo} alt="logo" />
           </div>
           <div onClick={() => loginWithRedirect()} className="nav-wrap">
-          <div style={{zIndex: 10}}  className="sign-in-link text-white">Already have an account? Log In</div>
+          <div style={{zIndex: 10}}  className="sign-in-link text-white">Already have an account? <span className="text-yellow">Log In</span> </div>
           </div>
          
         </nav>
@@ -48,11 +48,10 @@ export default function LandingPage() {
           <button onClick={() => loginWithRedirect()}className="splash-btn login-btn logout-btn">Sign Up</button>
           </div>
           <div className="globe-wrapper">
-            {/* <GlobeGl /> */}
+            <GlobeGl />
           </div>
           
         </div>
-        <h4 className="ui horizontal divider header"></h4>
         
         <div className="landing-page-2">
           <div ref={anchorRef} className="landing-cards-container">
