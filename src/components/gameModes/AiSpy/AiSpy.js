@@ -46,8 +46,8 @@ function AiSpy() {
     }
   }
 
-  fetchMaps();
   useEffect(() => {
+    fetchMaps();
     setLoading(false);
   }, []);
 
@@ -71,8 +71,8 @@ function AiSpy() {
       const classifier = await ml5.objectDetector("CocoSsd");
       // setModel(classifier);
       const results = await classifier.detect(capture);
-      if (results.length > 0) setResult(results[0].label);
       setLoading(false);
+      if (results.length > 0) setResult(results[0].label);
       setRoundOver(true);
       // const results = await classifier.predict(imgRef.current);
       await axios.patch("https://wander-earth.herokuapp.com/users/inc-games-played", {
@@ -85,7 +85,8 @@ function AiSpy() {
       if (result === objectToFind) setWon(true);
     } catch (err) {
       {
-        console.log(err);
+setRoundOver(true)  ;
+      console.log(err);
       }
     }
   }
@@ -103,7 +104,14 @@ function AiSpy() {
   return (
     <>
       {loading && <Spinner />}
-      {roundOver && <RoundOverSplash callback1={fetchMaps} callback2={()=>{setRoundOver(false)}} text2={!won?"Adjust angle and retry" : ''} text1={'Continue'} title={won ? "Well Done!" : "No Detections"} />}
+
+      {roundOver && <RoundOverSplash  
+      callback1={fetchMaps}
+       callback2={()=>{setRoundOver(false)}}
+        text2={!won?"Adjust angle and retry" : ''} 
+        text1={'Continue'} 
+        title={won ? `Well Done!  * ${objectToFind} * was detected!` : "No Detections"}
+         />}
       <div ref={handleRef} className="game-wrapper">
         <div className="aispy-dash">
         <div className="aispy-object">Find the: {<span className="text-yellow">{ objectToFind}</span>}</div>

@@ -29,19 +29,17 @@ function GuessLocation() {
     navigateTo("/");
   }
   
-
+useEffect(()=>{
   fetchMaps();
-  useEffect(() => { 
-    setInterval(()=>{
-      
-    },500)
+
+},[])
+  
     const t = setTimeout(() => {
       // setLoading(false);
       setMapActive(true);
     }, 600);
-    return () => clearTimeout(t);
 
-  }, []);
+
 
   async function fetchMaps(){
     try{
