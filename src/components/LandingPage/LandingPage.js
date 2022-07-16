@@ -9,13 +9,13 @@ import earth3d from "../../assets/images/pngwing.png";
 import objDetPic from "../../assets/images/object-detection.png";
 import SmallMap from "../SmallMap/SmallMap";
 import Footer from ".././Footer/Footer";
-import logo from "../../assets/images/logo1.png"
+import logo from "../../assets/images/logo1.png";
 import {useInViewport} from 'react-in-viewport';
 
 export default function LandingPage() {
   const anchorRef = useRef();
   const { inViewport } = useInViewport( anchorRef );
-  const { loginWithRedirect, isAuthenticated, isLoading, user } =
+  const { loginWithRedirect, isAuthenticated, isLoading, signUp } =
     useAuth0();
     const navigateTo = useNavigate();
     
@@ -28,28 +28,31 @@ export default function LandingPage() {
       <>
      
       <div className="landing-container">
-        <nav style={!inViewport ? {position: 'fixed'} : {position: 'absolute'} } className="landing-navbar">
+        <nav style={inViewport ? {position: 'fixed'} : {position: 'absolute'} } className="landing-navbar">
           <div className="logo-container">
-          <img style={!inViewport ? {display: 'block'} : {display: 'none'}} className="logo fadeIn" src={logo} alt="logo" />
+          <img style={inViewport ? {display: 'block'} : {display: 'none'}} className="logo fadeIn" src={logo} alt="logo" />
           </div>
-          
-          <button className="splash-btn login-btn" onClick={() => loginWithRedirect()}>Log In</button>
+          <div onClick={() => loginWithRedirect()} className="nav-wrap">
+          <div style={{zIndex: 10}}  className="sign-in-link text-white">Already have an account? Log In</div>
+          </div>
+         
         </nav>
         <div className="landing-page-1">
           <div className="main-header-animation  left-float">
-            <h1 ref={anchorRef} className="text-yellow">Wander</h1>
+            <h1  className="text-yellow">Wander</h1>
             <h2 className="text-white">Let's Explore The World!</h2>
-            <button className="splash-btn btn1 play-btn">Play</button>
+            
+          <button onClick={() => loginWithRedirect()}className="splash-btn login-btn logout-btn">Sign Up</button>
           </div>
           <div className="globe-wrapper">
-            {/* <GlobeGl /> */}
+            <GlobeGl />
           </div>
           
         </div>
         <h4 className="ui horizontal divider header"></h4>
         
         <div className="landing-page-2">
-          <div className="landing-cards-container">
+          <div ref={anchorRef} className="landing-cards-container">
           <div className="ui divider mobile-only"></div>
             <LandingCard
               title="title1"

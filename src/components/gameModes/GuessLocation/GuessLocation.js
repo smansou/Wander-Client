@@ -27,7 +27,9 @@ function GuessLocation() {
     navigateTo("/");
   }
   
-  useEffect(() => {
+
+  //refactor
+  useEffect(() => { 
     async function fetchMaps(){
       try{
       const {data: maps} = await axios.get(`https://wander-earth.herokuapp.com/maps/${mode}`);
@@ -53,7 +55,7 @@ function GuessLocation() {
     );
     setDistance(distance)
 
-    let score = 1000 - (distance * 200) / 500;
+    let score = 1000 - (distance/100);
     try{
       await axios.patch("https://wander-earth.herokuapp.com/users/inc-games-played", {
       email: userState.userEmail,

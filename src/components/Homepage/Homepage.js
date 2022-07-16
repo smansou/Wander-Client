@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, useState } from "react";
+import React, {useRef, useContext } from "react";
 import "./homepage.css";
 import GlobeGl from "../Globe/GlobeGl";
 import AnimatedCard from "../../styled-components/animatedCard/AnimatedCard";
@@ -14,12 +14,21 @@ import sydneyPic from "../.././assets/images/sydney.jpeg";
 import tropicsPic from "../.././assets/images/extreme-places-2.jpeg";
 import Footer from "../Footer/Footer";
 import Banner from "../../styled-components/banner/Banner";
+import {useInViewport} from 'react-in-viewport';
+import logo from "../../assets/images/logo1.png"
+
+
+
 export default function Homepage() {
-  const {isAuthenticated, isLoading, user } =
-    useAuth0();
+  const {isAuthenticated, isLoading, logout, user } = useAuth0();
+    const anchorRef = useRef();
   const navigateTo = useNavigate();
   const globalState = useContext(GlobalContext);
   const { userState, setUserState } = globalState;
+  const { inViewport } = useInViewport( anchorRef );
+
+
+
   if (!isAuthenticated) {
     navigateTo("/");
   }
@@ -28,20 +37,34 @@ export default function Homepage() {
     <div>Spinner</div>
   ) : (
     <div className="home-container">
-      <Navbar />
+      {/* <Navbar /> */}
+      <nav style={inViewport ? {position: 'fixed', background:'rgb(0,0,0,0.3' } : {position: 'absolute'} } className="landing-navbar">
+          <div className="logo-container">
+          <img style={inViewport ? {display: 'block', zIndex:'15' } : {display: 'none'}} className="logo fadeIn" src={logo} alt="logo" />
+         
+          </div>
+          <div>
+          <img className="ui avatar image" src={user.picture} />
+          <button  className="logout-btn splash-btn login-btn" onClick={() => logout({ returnTo: window.location.origin })}>
+          Log Out
+          </button>
+          </div>
+          
+
+        </nav>
       <div className="home-page-1">
         <div className="left-float animateIn">
           <h1 className="text-yellow">Wander</h1>
           <h2 id="white">Let's Explore The World!</h2>
         </div>
         <div className="globe-wrapper-homepage">
-          {/* <GlobeGl /> */}
+          <GlobeGl />
            </div>
         
       </div>
       {/* <div className="ui divider"></div> */}
       <div className="page-2">
-        <div className="stat-container">
+        <div  className="stat-container">
           <StatCard statNumber={userState.userLevel} statTitle={"Level"} />
           <StatCard
             statNumber={userState.userGamesPlayed}
@@ -52,8 +75,8 @@ export default function Homepage() {
             statTitle={"Distance Travelled"}
           />
         </div>
-        <div className="ui inverted horizontal divider">Classic</div>
-        <div className="cards-container">
+        <div  className="ui inverted horizontal divider">Classic</div>
+        <div ref={anchorRef} className="cards-container">
         <Link to={"/guesslocation/world"}>
           <AnimatedCard
             roundImage={nyPic}

@@ -10,6 +10,7 @@ export default function StatCard(props) {
     <div ref={myRef} className={`stat-card-container ${inViewport && 'animateIn'}`}>
       <div className="text-wrapper">
       <h1 className='stat-number'>{props.statNumber}</h1>
+        <div className="ui divider"></div>
         <h2 className='stat-title'>{props.statTitle}</h2>
       </div>
         
