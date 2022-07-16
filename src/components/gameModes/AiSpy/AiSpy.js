@@ -65,25 +65,23 @@ function AiSpy() {
   }
 
   async function predict() {
-    if (!capture) return; //check
     setLoading(true);
     try {
       // const classifier = await ml5.imageClassifier("MobileNet");
       const classifier = await ml5.objectDetector("CocoSsd");
       // setModel(classifier);
       const results = await classifier.detect(capture);
-      console.log(results);
       if (results.length > 0) setResult(results[0].label);
       setLoading(false);
       setRoundOver(true);
       // const results = await classifier.predict(imgRef.current);
       await axios.patch("https://wander-earth.herokuapp.com/users/inc-games-played", {
-      email: userState.userEmail,
-    });
-    await axios.patch("https://wander-earth.herokuapp.com/users/update-score", {
-      email: userState.userEmail,
-      score: 200,
-    });
+        email: userState.userEmail,
+      });
+      await axios.patch("https://wander-earth.herokuapp.com/users/update-score", {
+        email: userState.userEmail,
+        score: 200,
+      });
       if (result === objectToFind) setWon(true);
     } catch (err) {
       {
@@ -107,14 +105,13 @@ function AiSpy() {
       {loading && <Spinner />}
       {roundOver && <RoundOverSplash callback1={fetchMaps} callback2={()=>{setRoundOver(false)}} text2={!won?"Adjust angle and retry" : ''} text1={'Continue'} title={won ? "Well Done!" : "No Detections"} />}
       <div ref={handleRef} className="game-wrapper">
-        <button
-          className="splash-btn"
-          disabled={loading}
-          onClick={handleUserChoice}
-          style={{ position: "absolute", right: "10px", zIndex: "9" }}
-        >
-          predict
+        <div className="aispy-dash">
+        <div className="aispy-object">Find the: {<span className="text-yellow">{ objectToFind}</span>}</div>
+        <button className="splash-btn predict-btn" disabled={loading} onClick={handleUserChoice}>
+          Predict
         </button>
+        </div>
+       
         <ReactStreetview
           apiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY}
           streetViewPanoramaOptions={streetViewPanoramaOptions}

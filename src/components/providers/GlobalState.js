@@ -24,7 +24,7 @@ export default function GlobalState(props) {
   async function fetchExistingUserOrCreate() {
     try {
       const userData = await axios.post(
-        "http://127.0.0.1:5000/users/fetch-user",
+        "https://wander-earth.herokuapp.com/users/fetch-user",
         { email: user.email }
       );
       setUserState({

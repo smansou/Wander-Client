@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import GlobeGl from "../Globe/GlobeGl";
 import LandingCard from "../../styled-components/landing-card/LandingCard";
 import earth3d from "../../assets/images/pngwing.png";
-import objDetPic from "../../assets/images/object-detection.png";
+import objDetPic from "../../assets/images/objLanding.png";
 import SmallMap from "../SmallMap/SmallMap";
 import Footer from ".././Footer/Footer";
 import logo from "../../assets/images/logo1.png";
@@ -29,7 +29,6 @@ export default function LandingPage() {
     return isLoading ? <Spinner />
     : (
       <>
-     {console.log(inViewport)}
       <div className="landing-container">
         <nav style={inViewport ? {position: 'fixed'} : {position: 'absolute'} } className="landing-navbar">
           <div className="logo-container">
@@ -43,7 +42,7 @@ export default function LandingPage() {
         <div className="landing-page-1">
           <div className="main-header-animation  left-float">
             <h1  className="text-yellow">Wander</h1>
-            <h2 className="text-white">Let's Explore The World!</h2>
+            <h2 className="text-white">Teleport and explore!</h2>
             
           <button onClick={() => loginWithRedirect()}className="splash-btn login-btn logout-btn">Sign Up</button>
           </div>
@@ -56,21 +55,21 @@ export default function LandingPage() {
         <div className="landing-page-2">
           <div ref={anchorRef} className="landing-cards-container">
           <div className="ui divider mobile-only"></div>
-            <LandingCard
-              title="title1"
-              text={"lorem ipsum text here about game maybe some more info"}
-            />
+          <LandingCard
+            title="Explore the Globe..."
+            imageURL={earth3d}
+            text={"Spawn in breathtaking destinations and guess where you are!"}
+          />
+            <div className="ui divider mobile-only"></div>
             <div className="ui divider mobile-only"></div>
             <LandingCard
-              title="title1"
-              imageURL={earth3d}
-              text={"lorem ipsum text here about game maybe some more info"}
-            />
-            <div className="ui divider mobile-only"></div>
-            <LandingCard
-              title="title1"
-              text={"lorem ipsum text here about game maybe some more info"}
+              title="AI-Spy with my little eye..."
+              text={"Find hidden objects and gems and test our Machine-Learning powered model"}
               imageURL={objDetPic}
+            />
+            <LandingCard
+              title="Limitless play"
+              text={"The game is free and always will be!"}
             />
           </div>
         </div>

@@ -42,7 +42,7 @@
 
 .landing-card-text{
   color: white;
-/* color: var(--orange); */
+  font-size: 1.2rem;
 }
 
 .landing-card-image {
