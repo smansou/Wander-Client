@@ -11,6 +11,9 @@ import SmallMap from "../SmallMap/SmallMap";
 import Footer from ".././Footer/Footer";
 import logo from "../../assets/images/logo1.png";
 import {useInViewport} from 'react-in-viewport';
+import { SpinnerDotted } from 'spinners-react';
+import Spinner from "../../styled-components/Spinner/Spinner";
+
 
 export default function LandingPage() {
   const anchorRef = useRef();
@@ -22,15 +25,15 @@ export default function LandingPage() {
     if (isAuthenticated) {
       navigateTo("/home");
     }
-
     
-    return isLoading ?  <div>Spinner</div> : (
+    return isLoading ? <Spinner />
+    : (
       <>
      
       <div className="landing-container">
         <nav style={inViewport ? {position: 'fixed'} : {position: 'absolute'} } className="landing-navbar">
           <div className="logo-container">
-          <img style={inViewport ? {display: 'block'} : {display: 'none'}} className="logo fadeIn" src={logo} alt="logo" />
+          <img onClick={()=>navigateTo('/home')} style={inViewport ? {display: 'block'} : {display: 'none'}} className="logo fadeIn" src={logo} alt="logo" />
           </div>
           <div onClick={() => loginWithRedirect()} className="nav-wrap">
           <div style={{zIndex: 10}}  className="sign-in-link text-white">Already have an account? Log In</div>
@@ -45,7 +48,7 @@ export default function LandingPage() {
           <button onClick={() => loginWithRedirect()}className="splash-btn login-btn logout-btn">Sign Up</button>
           </div>
           <div className="globe-wrapper">
-            <GlobeGl />
+            {/* <GlobeGl /> */}
           </div>
           
         </div>
@@ -72,7 +75,8 @@ export default function LandingPage() {
             />
           </div>
         </div>
-            <div className="ui divider"></div>
+        <div className="divider-padding"><div className="ui divider"></div></div>
+            
             <Footer />
       </div>
     </>

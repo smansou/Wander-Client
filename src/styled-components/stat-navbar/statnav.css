@@ -1,9 +1,9 @@
 
 
 .stat-nav-container{
-    padding: 20px 10px;
+    padding: 5px 30px;
     position: absolute;
-    height: 40px;
+    height: 46px;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -24,4 +24,12 @@
 .navstat{
     width: 100%;
     margin: 0 20px;
+}
+
+@media(max-width:1200px){
+
+.stat-nav-container{
+    position: relative;
+}
+
 }

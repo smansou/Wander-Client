@@ -8,6 +8,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { useNavigate, useParams } from "react-router-dom";
 import RoundOverSplash from "../../../styled-components/RoundOverSplash/RoundOverSplash";
 import { GlobalContext } from "../../providers/GlobalState";
+import Spinner from "../../../styled-components/Spinner/Spinner";
 
 
 
@@ -19,7 +20,7 @@ function AiSpy() {
   const [capture, setCapture] = useState();
   const [appRef, setAppRef] = useState();
   const [won, setWon] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const navigateTo = useNavigate();
   const { isAuthenticated } = useAuth0();
   const { userState } = useContext(GlobalContext);
@@ -46,7 +47,7 @@ function AiSpy() {
   }
 
   useEffect(() => {
-    
+    setLoading(false);
     fetchMaps();
   }, []);
 
@@ -64,8 +65,8 @@ function AiSpy() {
   }
 
   async function predict() {
-    if (!capture) return;
-    setIsLoading(true);
+    if (!capture) return; //check
+    setLoading(true);
     try {
       // const classifier = await ml5.imageClassifier("MobileNet");
       const classifier = await ml5.objectDetector("CocoSsd");
@@ -73,7 +74,7 @@ function AiSpy() {
       const results = await classifier.detect(capture);
       console.log(results);
       if (results.length > 0) setResult(results[0].label);
-      setIsLoading(false);
+      setLoading(false);
       setRoundOver(true);
       // const results = await classifier.predict(imgRef.current);
       await axios.patch("https://wander-earth.herokuapp.com/users/inc-games-played", {
@@ -103,12 +104,12 @@ function AiSpy() {
 
   return (
     <>
-      {isLoading && <div>Detecting...</div>}
+      {loading && <Spinner />}
       {roundOver && <RoundOverSplash callback1={fetchMaps} callback2={()=>{setRoundOver(false)}} text2={!won?"Adjust angle and retry" : ''} text1={'Continue'} title={won ? "Well Done!" : "No Detections"} />}
       <div ref={handleRef} className="game-wrapper">
         <button
           className="splash-btn"
-          disabled={isLoading}
+          disabled={loading}
           onClick={handleUserChoice}
           style={{ position: "absolute", right: "10px", zIndex: "9" }}
         >

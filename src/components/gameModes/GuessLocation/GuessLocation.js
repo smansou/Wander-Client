@@ -10,6 +10,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { useNavigate, useParams } from "react-router-dom";
 import Statnav from "../../../styled-components/stat-navbar/Statnav";
 import SplashMap from "../../SplashMap/SplashMap"
+import Spinner from "../../../styled-components/Spinner/Spinner";
 
 
 
@@ -20,6 +21,7 @@ function GuessLocation() {
   const [position, setPosition] = useState({ lat: 40.672401, lng: -73.993524 });
   const [roundOver, setRoundOver] = useState(false);
   const [distance, setDistance] = useState();
+  const [loading, setLoading] = useState(true);
   const navigateTo = useNavigate();
   const {mode} = useParams();
   const {isAuthenticated } = useAuth0();
@@ -30,22 +32,25 @@ function GuessLocation() {
 
   //refactor
   useEffect(() => { 
-    async function fetchMaps(){
-      try{
-      const {data: maps} = await axios.get(`https://wander-earth.herokuapp.com/maps/${mode}`);
-      const randomIndex = Math.floor(Math.random()*maps.length);
-          const {coordinates: {lat, lng}} = maps[randomIndex];
-          setPosition({lat: lat, lng: lng})
-      }catch(err){console.log(err);}
-    }fetchMaps();
+    fetchMaps();
+    setLoading(false);
 
     const t = setTimeout(() => {
       setMapActive(true);
     }, 200);
     return () => clearTimeout(t);
+
   }, []);
 
-
+  async function fetchMaps(){
+    try{
+    const {data: maps} = await axios.get(`https://wander-earth.herokuapp.com/maps/${mode}`);
+    const randomIndex = Math.floor(Math.random()*maps.length);
+        const {coordinates: {lat, lng}} = maps[randomIndex];
+        setPosition({lat: lat, lng: lng})
+    }catch(err){console.log(err);}
+  }
+  
   async function checkAnswer(lat, lng) {
     let distance = distanceBetweenTwoCoordinates(
       lat,
@@ -65,10 +70,10 @@ function GuessLocation() {
       score: score,
     });
   }catch(err){
-    console.log("failed to update score");
+    console.log("failed to update score", err);
   }
     
-    setRoundOver(true); // show round over div with info about round
+    setRoundOver(true);
   }
 
 
@@ -78,6 +83,7 @@ function GuessLocation() {
 
   return (
     <>
+    {loading && <Spinner />}
         <Statnav />
       <div className="game-wrapper">
         {roundOver && <RoundOverSplash  title={`Well Done! You were ${Math.floor(distance)} KM away`}  middle={<SplashMap  position={position} />} />}

@@ -15,8 +15,8 @@ import tropicsPic from "../.././assets/images/extreme-places-2.jpeg";
 import Footer from "../Footer/Footer";
 import Banner from "../../styled-components/banner/Banner";
 import {useInViewport} from 'react-in-viewport';
-import logo from "../../assets/images/logo1.png"
-
+import logo from "../../assets/images/logo1.png";
+import Spinner from "../../styled-components/Spinner/Spinner";
 
 
 export default function Homepage() {
@@ -34,13 +34,13 @@ export default function Homepage() {
   }
 
   return isLoading ? (
-    <div>Spinner</div>
+    <Spinner />
   ) : (
     <div className="home-container">
       {/* <Navbar /> */}
       <nav style={inViewport ? {position: 'fixed', background:'rgb(0,0,0,0.3' } : {position: 'absolute'} } className="landing-navbar">
           <div className="logo-container">
-          <img style={inViewport ? {display: 'block', zIndex:'15' } : {display: 'none'}} className="logo fadeIn" src={logo} alt="logo" />
+          <img onClick={()=>navigateTo('/home')}  style={inViewport ? {display: 'block', zIndex:'15' } : {display: 'none'}} className="logo fadeIn" src={logo} alt="logo" />
          
           </div>
           <div>
@@ -58,7 +58,7 @@ export default function Homepage() {
           <h2 id="white">Let's Explore The World!</h2>
         </div>
         <div className="globe-wrapper-homepage">
-          <GlobeGl />
+          {/* <GlobeGl /> */}
            </div>
         
       </div>

@@ -58,7 +58,7 @@ top: 120px;
     justify-content: space-between;
     align-items: center;
     padding: 15px 75px;
-    z-index: 10;
+    z-index: 15;
 }
   .animateIn {
     animation-name: animateIn;
@@ -148,6 +148,9 @@ white-space: nowrap;  }
   }
  .mobile-only{
   display: none !important;
+ }
+ .divider-padding{
+  padding: 0 140px;
  }
 
   @media (max-width: 1200px) {
