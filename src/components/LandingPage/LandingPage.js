@@ -42,7 +42,7 @@ export default function LandingPage() {
         <div className="landing-page-1">
           <div className="main-header-animation  left-float">
             <h1  className="text-yellow">Wander</h1>
-            <h2 className="text-white">Teleport and explore!</h2>
+            <h2 className="text-white">Teleport and Explore!</h2>
             
           <button onClick={() => loginWithRedirect()}className="splash-btn login-btn logout-btn">Sign Up</button>
           </div>
@@ -61,12 +61,12 @@ export default function LandingPage() {
             text={"Spawn in breathtaking destinations and guess where you are!"}
           />
             <div className="ui divider mobile-only"></div>
-            <div className="ui divider mobile-only"></div>
             <LandingCard
               title="AI-Spy with my little eye..."
               text={"Find hidden objects and gems and test our Machine-Learning powered model"}
               imageURL={objDetPic}
             />
+            <div className="ui divider mobile-only"></div>
             <LandingCard
               title="Limitless play"
               text={"The game is free and always will be!"}
