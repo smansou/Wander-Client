@@ -30,6 +30,10 @@
     display: flex;
     justify-content: center;
 }
+.splash-continue{
+    height: 50px;
+    transform: translatey(50%);
+}
 
 
 .splash-btn{

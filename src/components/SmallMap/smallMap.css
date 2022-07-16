@@ -22,25 +22,27 @@ border-radius: 25px;
     font-size: 1.3rem;
 }
 .small-map-container:hover{
-    height: 460px;
-    width: 500px;
+    height: 560px;
+    width: 660px;
     opacity: 1;
 }
 .arrow-svg{
     display: none;
  position: absolute;
   z-index: 30;
-  transform: translate(175px, 0px);
+  /* transform: translate(175px, 0px); */
+  width: 30px;
+  height: 30px;
 }
 
 
 @media(max-width:1200px){
     .small-map-container{
-        width: 100%;
+        width: 102%;
         height: 30px;
         top: 1px;
         position: relative;
-        transform: translateX(10px);
+        /* transform: translateX(10px); */
     }
     .small-map-container-expand{
         width: 100%;
@@ -55,6 +57,11 @@ border-radius: 25px;
     }
     .arrow-svg{
         display: block;
+    }
+    .small-map-container:hover{
+        height: 100%;
+        width: 100%;
+        opacity: 1;
     }
         
     

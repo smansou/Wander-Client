@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import GoogleMapReact from "google-map-react";
 import "./splashMap.css";
+import marker from '../../assets/images/marker.png';
+
 
 export default function SmallMap(props) {
     const [markers, setMarkers] = useState();
@@ -23,8 +25,13 @@ export default function SmallMap(props) {
         defaultCenter={{ lat: 50, lng: 30 }}
         defaultZoom={11}
         bootstrapURLKeys={{ key: process.env.GOOGLE_MAPS_API_KEY }} >
-          <div lat={choiceCoords.lat} lng={choiceCoords.lng}>\/</div>
-          <div lat={props.position.lat} lng={props.position.lng}>\/</div>
+          <div lat={choiceCoords.lat} lng={choiceCoords.lng}>
+          <img style={{width: '23px', height:'38px'}} src={marker} alt="X" />
+
+          </div>
+          <div lat={props.position.lat} lng={props.position.lng}>
+          <img style={{width: '23px', height:'38px'}} src={marker} alt="X" />
+          </div>
         </GoogleMapReact> 
     </div>
 

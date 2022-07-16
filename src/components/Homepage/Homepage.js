@@ -48,6 +48,9 @@ export default function Homepage() {
       <div className="home-page-1">
         <div className="left-float animateIn">
           <h1 className="text-yellow">Wander</h1>
+
+          
+          
           <h2 id="white">Teleport And Explore!</h2>
         </div>
         <div className="globe-wrapper-homepage">

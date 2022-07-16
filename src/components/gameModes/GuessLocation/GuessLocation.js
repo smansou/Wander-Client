@@ -18,7 +18,7 @@ function GuessLocation() {
   const { userState } = useContext(GlobalContext);
   const [mapActive, setMapActive] = useState(false);
   const [streetviewActive, setStreetviewActive] = useState(false);
-  const [position, setPosition] = useState({ lat: 40.672401, lng: -73.993524 });
+  const [position, setPosition] = useState();
   const [roundOver, setRoundOver] = useState(false);
   const [distance, setDistance] = useState();
   const [loading, setLoading] = useState(true);
@@ -30,14 +30,15 @@ function GuessLocation() {
   }
   
 
-  //refactor
+  fetchMaps();
   useEffect(() => { 
-    fetchMaps();
-    setLoading(false);
-
+    setInterval(()=>{
+      
+    },500)
     const t = setTimeout(() => {
+      // setLoading(false);
       setMapActive(true);
-    }, 200);
+    }, 600);
     return () => clearTimeout(t);
 
   }, []);
@@ -48,10 +49,12 @@ function GuessLocation() {
     const randomIndex = Math.floor(Math.random()*maps.length);
         const {coordinates: {lat, lng}} = maps[randomIndex];
         setPosition({lat: lat, lng: lng})
+        setLoading(false);
     }catch(err){console.log(err);}
   }
   
   async function checkAnswer(lat, lng) {
+    setLoading(true);
     let distance = distanceBetweenTwoCoordinates(
       lat,
       lng,
@@ -74,6 +77,7 @@ function GuessLocation() {
   }
     
     setRoundOver(true);
+    setLoading(false);
   }
 
 
@@ -86,7 +90,7 @@ function GuessLocation() {
     {loading && <Spinner />}
         <Statnav />
       <div className="game-wrapper">
-        {roundOver && <RoundOverSplash  title={`Well Done! You were ${Math.floor(distance)} KM away`}  middle={<SplashMap  position={position} />} />}
+        {roundOver && <RoundOverSplash text1={'Continue'}  callback1={()=>{fetchMaps(); setRoundOver(false)}}  title={`Well Done! You were ${Math.floor(distance)} KM away`}  middle={<SplashMap  position={position} />} />}
           <Streetview position={position} />
       
       </div>
