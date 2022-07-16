@@ -1,7 +1,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Sansita:ital,wght@0,400;0,700;0,800;0,900;1,400;1,700;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
 
 html{
   scroll-behavior: smooth;
@@ -17,12 +17,13 @@ html{
 }
 .text-yellow{
   color: #FCD900;
+  /* color: var(--yellow) */
 }
 .text-white{
   color: #fff;
 }
 :root {
-  --font: 'Sansita', sans-serif;
+  --font: 'Josefin Sans', sans-serif;
     --fontOrigin: 1rem;     /* 16px */
     --fontSmall: 0.625em;   /* 10px */
     --fontMedium: 0.875em;  /* 14px */
@@ -33,7 +34,7 @@ html{
     --speed: 0.65s;
     --blue: #035397;
     --orange: #E8630A;
-    --yellow: #FCD900;
+    --yellow: #f1ce53;
   }
   #white{
     color: white;

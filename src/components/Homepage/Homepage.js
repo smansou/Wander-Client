@@ -14,9 +14,8 @@ import sydneyPic from "../.././assets/images/sydney.jpeg";
 import tropicsPic from "../.././assets/images/extreme-places-2.jpeg";
 import Footer from "../Footer/Footer";
 import Banner from "../../styled-components/banner/Banner";
-import RoundOverSplash from "../../styled-components/RoundOverSplash/RoundOverSplash";
 export default function Homepage() {
-  const { loginWithRedirect, logout, isAuthenticated, isLoading, user } =
+  const {isAuthenticated, isLoading, user } =
     useAuth0();
   const navigateTo = useNavigate();
   const globalState = useContext(GlobalContext);
@@ -62,6 +61,7 @@ export default function Homepage() {
             secondaryText="Spawn in a random location, guess where you are!"
             innerText="even more info"
             bgImage="https://c1.staticflickr.com/4/3935/32253842574_d3d449ab86_c.jpg"
+            animationName='animateRight'
           />
           </Link>
           
@@ -72,6 +72,7 @@ export default function Homepage() {
             secondaryText="Spawn in a world capital, guess where you are!"
             innerText="even more info"
             bgImage={sydneyPic}
+            animationName='animateUp'
           />
           </Link>
           
@@ -82,6 +83,7 @@ export default function Homepage() {
             secondaryText="Can you withstand the harshness of these destinations?"
             innerText="even more info"
             bgImage={tropicsPic}
+            animationName='animateLeft'
           />
           </Link>
           
@@ -103,3 +105,5 @@ export default function Homepage() {
     </div>
   );
 }
+
+     

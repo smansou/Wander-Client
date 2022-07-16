@@ -1,14 +1,15 @@
-import React from 'react'
+import React, {useRef} from 'react'
 import './animatedCard.css';
+import {useInViewport} from 'react-in-viewport';
 
 export default function AnimatedCard(props) {
-
-   
-
+  const myRef = useRef();
+    const {inViewport } = useInViewport( myRef );
+  
 
   return (
    
-  <div className="card" data-effect="zoom">
+  <div ref={myRef} className={`card ${inViewport && props.animationName}`} data-effect="zoom">
    
     <figure  className="card__image">
       <img src={props.bgImage}/>

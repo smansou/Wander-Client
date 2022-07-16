@@ -1,3 +1,55 @@
+@keyframes animateIn {
+  from {
+    transform: scale(0.6, 0.6);
+    opacity: 0.6;
+  }
+  to {
+    transform: scale(1,1);
+    opacity: 1;
+  }
+}
+@keyframes main-animation {
+ from {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  to {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+
+.logo-container{
+width: 110px;
+height: 100%;
+padding-top: 10px;
+
+/* overflow: hidden; */
+}
+.logo{
+  width: 100%;
+/* transform: translate(30px ,-10px); */
+}
+
+.anchor{
+position: absolute;
+top: 120px;
+}
+
+.main-header-animation{
+  /* animation-duration: 0.75s; */
+  animation-duration: 1.6s;
+  /* animation-delay: 0.5s; */
+  animation-name: main-animation;
+  animation-timing-function: cubic-bezier(.26,.53,.74,1.48);
+  animation-fill-mode: forwards;
+}
+
+
+.globe-container{
+  transform: translate(-180px, -230px);
+}
+
 .landing-navbar{
   width: 100%;
     padding: 30px;
@@ -5,30 +57,15 @@
     display: flex;
     justify-content: space-between;
     position: absolute;
-    padding: 20px 40px;
+    align-items: center;
+    padding: 5px 15px;
     z-index: 10;
 }
-
-.globe-container{
-    transform: translate(-180px, -230px);
-}
-@keyframes animateIn {
-    from {
-      transform: scale(0.6, 0.6);
-      opacity: 0.6;
-    }
-    to {
-      transform: scale(1,1);
-      opacity: 1;
-    }
-  }
-  
- 
-  .animateIn .animateInLong {
+  .animateIn {
     animation-name: animateIn;
     animation: forwards;
-    transition: all var(--speed) ease;
-    animation-duration: 2s;
+    transition: all 2s ease;
+    animation-duration: 2.4s;
     animation-direction: alternate;
     animation-timing-function: linear;
     animation-iteration-count: forwards;
@@ -36,19 +73,23 @@
   .left-float>*{
     z-index: 3;
   }
+  .play-btn{
+    height: 50px;
+    width: 110px;
+}
+.login-btn{
+  padding: 0px;
+}
   
-  .animateInLong{
-    animation-duration: 1200ms;
-  
-  }
   
   .landing-container {
+    filter: blur(3%);
     /* display: flex;
       flex-direction: column; */
     width: 100%;
     /* height: 250vh; */
     height: 100%;
-    background-color: #2E0208;
+    background-color: #2e020847;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1200 800'%3E%3Cdefs%3E%3CradialGradient id='a' cx='0' cy='800' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%2329032c'/%3E%3Cstop offset='1' stop-color='%2329032c' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='b' cx='1200' cy='800' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23270c2b'/%3E%3Cstop offset='1' stop-color='%23270c2b' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='c' cx='600' cy='0' r='600' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%230c0d29'/%3E%3Cstop offset='1' stop-color='%230c0d29' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='d' cx='600' cy='800' r='600' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%232E0208'/%3E%3Cstop offset='1' stop-color='%232E0208' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='e' cx='0' cy='0' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%2303032A'/%3E%3Cstop offset='1' stop-color='%2303032A' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='f' cx='1200' cy='0' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23181925'/%3E%3Cstop offset='1' stop-color='%23181925' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect fill='url(%23a)' width='1200' height='800'/%3E%3Crect fill='url(%23b)' width='1200' height='800'/%3E%3Crect fill='url(%23c)' width='1200' height='800'/%3E%3Crect fill='url(%23d)' width='1200' height='800'/%3E%3Crect fill='url(%23e)' width='1200' height='800'/%3E%3Crect fill='url(%23f)' width='1200' height='800'/%3E%3C/svg%3E");
     background-attachment: fixed;
     background-size: cover;
@@ -70,6 +111,16 @@
     align-items: center;
     justify-content: center;
   }
+  .left-float>h1 {
+    font-size: 6rem;
+    height: fit-content;
+    width: fit-content;
+
+  }
+  .login-btn{
+    height: 40px;
+    width: 80px;
+white-space: nowrap;  }
  
   .globe-wrapper{
     width: 100%;
@@ -138,5 +189,13 @@ transform: translateY(-50px);
     canvas{
       margin: 1px !important;
     }
+    /* .logo{
+    transform: translate(0px ,-15px);
+    } */
+    .anchor{
+      position: absolute;
+      top: 20px;
+    
+      }
   }
   

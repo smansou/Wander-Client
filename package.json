@@ -15,6 +15,7 @@
     "react-dom": "^18.2.0",
     "react-globe.gl": "^2.22.1",
     "react-google-streetview": "^0.0.9",
+    "react-in-viewport": "^1.0.0-alpha.28",
     "react-router": "^6.3.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
