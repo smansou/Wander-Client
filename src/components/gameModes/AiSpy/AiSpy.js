@@ -46,9 +46,9 @@ function AiSpy() {
     }
   }
 
+  fetchMaps();
   useEffect(() => {
     setLoading(false);
-    fetchMaps();
   }, []);
 
   const handleRef = (e) => {

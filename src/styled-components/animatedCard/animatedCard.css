@@ -273,13 +273,13 @@
     font-weight: var(--fontLight);
     text-align: center;
     letter-spacing: 0.35rem;
-    color: rgba(100, 130, 200, 0.45);
+    color: var(--yellow);
     -webkit-transition: all var(--speed) ease;
     transition: all var(--speed) ease;
   }
   
   .card:hover .card__job {
-    color: rgba(100, 130, 200, 1);
+    color: var(--yellow);
   }
   
   .card__bio {

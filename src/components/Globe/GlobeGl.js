@@ -58,8 +58,9 @@ const renderPopup = (mode) => {
     animateIn={true}
     backgroundColor="rgba(0,0,0,0)"
     showAtmosphere={true}
-    atmosphereColor=  "white"
-    atmosphereAltitude = {0.01}
+    atmosphereColor=  "FCD900"
+    atmosphereAltitude = {0.05}
+    
     enablePointerInteraction={false}
         hexPolygonsData={hex.features}
         hexPolygonResolution={3} //values higher than 3 makes it buggy
