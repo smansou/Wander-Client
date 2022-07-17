@@ -88,7 +88,7 @@ useEffect(()=>{
         <Statnav />
       <div className="game-wrapper">
         {roundOver && <RoundOverSplash text1={'Continue'}  callback1={()=>{fetchMaps(); setRoundOver(false)}}  title={`Well Done! You were ${Math.floor(distance)} KM away`}  middle={<SplashMap  position={position} />} />}
-          <Streetview position={position} />
+          <Streetview email={userState.userEmail} position={position} />
       
       </div>
       {!roundOver && (mapActive && <SmallMap refresh={loading} getAnswer={checkAnswer} />)}

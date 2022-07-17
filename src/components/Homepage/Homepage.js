@@ -67,7 +67,7 @@ export default function Homepage() {
             statTitle={"Games Played"}
           />
           <StatCard
-            statNumber={userState.userDistance}
+            statNumber={`${userState.userDistance} km`}
             statTitle={"Distance Travelled"}
           />
         </div>

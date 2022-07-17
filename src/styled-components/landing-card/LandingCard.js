@@ -13,11 +13,11 @@ export default function LandingCard(props) {
   return (
     <div ref={myRef} className={`landing-card-container ${inViewport && 'animateIn' }`}>
       <div className="landing-text-wrapper">
-       
       <h1 className="landing-card-title">{props.title}</h1>
         <p className="landing-card-text">{props.text}</p>
       </div>
-        <img className='landing-card-image' src={props.imageURL} />
+      <div className="land-img-wrapper"><img className='landing-card-image' src={props.imageURL} />
+</div>
     </div>
   )
 }

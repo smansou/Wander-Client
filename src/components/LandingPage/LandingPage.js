@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import GlobeGl from "../Globe/GlobeGl";
 import LandingCard from "../../styled-components/landing-card/LandingCard";
 import earth3d from "../../assets/images/pngwing.png";
-import objDetPic from "../../assets/images/objLanding.png";
+import objDetPic from "../../assets/images/objLandingSmall.png";
 import SmallMap from "../SmallMap/SmallMap";
 import Footer from ".././Footer/Footer";
 import logo from "../../assets/images/logo1.png";
@@ -26,11 +26,9 @@ export default function LandingPage() {
     }
    
     
-    return isLoading ? <Spinner />
-    : (
-      <>
-      <div className="landing-container">
-        <nav style={inViewport ? {position: 'fixed'} : {position: 'absolute'} } className="landing-navbar">
+      function Nav(props) {
+      return (
+        <nav style={inViewport ? {position: props.position} : {position: props.position} } className="landing-navbar">
           <div className="logo-container">
           <img onClick={()=>navigateTo('/home')} style={inViewport ? {display: 'block'} : {display: 'none'}} className="logo fadeIn" src={logo} alt="logo" />
           </div>
@@ -39,6 +37,17 @@ export default function LandingPage() {
           </div>
          
         </nav>
+      )
+    }
+    
+    
+    return isLoading ? <Spinner />
+    : (
+      <>
+      <div className="landing-container">
+        { inViewport &&  <Nav position={'fixed'} />}
+        <Nav position={'absolute'} />
+
         <div className="landing-page-1">
           <div className="main-header-animation  left-float">
             <h1  className="text-yellow">Wander</h1>
@@ -66,7 +75,7 @@ export default function LandingPage() {
               text={"Find hidden objects and gems and test our machine-learning powered object detection model"}
               imageURL={objDetPic}
             />
-            <span ref={anchorRef}></span>
+            <span style={{zIndex: '40'}} ref={anchorRef}></span>
             <div className="ui divider mobile-only"></div>
             <LandingCard
               title="Limitless play"

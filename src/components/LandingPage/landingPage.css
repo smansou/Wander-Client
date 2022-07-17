@@ -194,9 +194,7 @@ transform: translateY(-50px);
     canvas{
       margin: 1px !important;
     }
-    /* .logo{
-    transform: translate(0px ,-15px);
-    } */
+    
     .anchor{
       position: absolute;
       top: 20px;
@@ -208,5 +206,10 @@ transform: translateY(-50px);
       }
   
   
+    }
+    @media(min-width:1600px){
+      .landing-cards-container{
+        padding: 0 440px;
+      }
     }
   
