@@ -20,7 +20,7 @@ export default function Footer() {
             <div className="three wide column">
               <h4 className="ui inverted header">Services</h4>
               <div className="ui inverted link list">
-                <span onClick={()=>navigateTo('/guessLocation/home')} className="item link-style">Where Am I?</span>
+                <span onClick={()=>navigateTo('/guessLocation/home')} className="item link-style">Classic</span>
                 <span onClick={()=>navigateTo('/aispy')} className="item link-style" >AI-SPY</span>
                 <span className="item">FAQ</span>
               </div>

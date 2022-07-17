@@ -53,7 +53,7 @@ export default function LandingPage() {
         </div>
         
         <div className="landing-page-2">
-          <div ref={anchorRef} className="landing-cards-container">
+          <div  className="landing-cards-container">
           <div className="ui divider mobile-only"></div>
           <LandingCard
             title="Explore the Globe..."
@@ -63,9 +63,10 @@ export default function LandingPage() {
             <div className="ui divider mobile-only"></div>
             <LandingCard
               title="AI-Spy with my little eye..."
-              text={"Find hidden objects and gems and test our Machine-Learning powered model"}
+              text={"Find hidden objects and gems and test our machine-learning powered object detection model"}
               imageURL={objDetPic}
             />
+            <span ref={anchorRef}></span>
             <div className="ui divider mobile-only"></div>
             <LandingCard
               title="Limitless play"

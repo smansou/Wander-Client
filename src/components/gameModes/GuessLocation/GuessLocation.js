@@ -73,7 +73,6 @@ useEffect(()=>{
   }catch(err){
     console.log("failed to update score", err);
   }
-    
     setRoundOver(true);
     setLoading(false);
   }
@@ -92,7 +91,7 @@ useEffect(()=>{
           <Streetview position={position} />
       
       </div>
-      {mapActive && <SmallMap getAnswer={checkAnswer} />}
+      {!roundOver && (mapActive && <SmallMap refresh={loading} getAnswer={checkAnswer} />)}
     </>
   );
 }

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import GoogleMapReact from "google-map-react"
 import "./smallMap.css";
 import marker from '../../assets/images/marker.png'
@@ -23,10 +23,13 @@ export default function SmallMap(props) {
            <svg onClick={()=>setExpandMap(false)} width="30" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M12 0c6.623 0 12 5.377 12 12s-5.377 12-12 12-12-5.377-12-12 5.377-12 12-12zm0 1c6.071 0 11 4.929 11 11s-4.929 11-11 11-11-4.929-11-11 4.929-11 11-11zm5.247 15l-5.247-6.44-5.263 6.44-.737-.678 6-7.322 6 7.335-.753.665z"/></svg>
       )
   }
+ 
+
 const toggleExpand = ()=>{
   setExpandMap(!expandMap);
 }
 const handleMapClick = (e) =>{
+  setShowMarker(true);
     setButtonState({disabled: false, opacity: 1});
   setchoiceCoords({lat: e.lat, lng: e.lng})
  
@@ -42,17 +45,17 @@ const handleMapClick = (e) =>{
           fullscreenControl: false,
           draggableCursor:'crosshair'
         }}
-        defaultCenter={{ lat: 50, lng: 30 }}
-        defaultZoom={11}
+        defaultCenter={{ lat: 52.5021612, lng: 13.3423916 }}
+        defaultZoom={0}
         bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_MAPS_API_KEY }}
         onClick={handleMapClick}
         >
           <div style={{display: showMarker}} lat={choiceCoords.lat} lng={choiceCoords.lng}>
-            <img style={{width: '23px', height:'38px'}} src={marker} alt="X" />
+            <img className={showMarker ? 'marker-img' : 'hide'} src={marker} alt="X" />
           </div>
         </GoogleMapReact>
         <button 
-        onClick={e => props.getAnswer(choiceCoords.lat, choiceCoords.lng) }
+        onClick={ () => props.getAnswer(choiceCoords.lat, choiceCoords.lng) }
         style={{opacity:buttonState.opacity}}
          disabled={buttonState.disabled} 
          className="guess-button">GUESS

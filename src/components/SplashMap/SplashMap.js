@@ -11,6 +11,7 @@ export default function SmallMap(props) {
       lat: null,
       lng: null
     })
+    
   return ( 
     <div className="splash-map-container">
       <GoogleMapReact
@@ -25,12 +26,13 @@ export default function SmallMap(props) {
         defaultCenter={{ lat: 50, lng: 30 }}
         defaultZoom={11}
         bootstrapURLKeys={{ key: process.env.GOOGLE_MAPS_API_KEY }} >
-          <div lat={choiceCoords.lat} lng={choiceCoords.lng}>
-          <img style={{width: '23px', height:'38px'}} src={marker} alt="X" />
 
+          <div lat={choiceCoords.lat} lng={choiceCoords.lng}>
+             <img style={{width: '23px', height:'38px'}} src={marker} alt="X" />
           </div>
+
           <div lat={props.position.lat} lng={props.position.lng}>
-          <img style={{width: '23px', height:'38px'}} src={marker} alt="X" />
+              <img style={{width: '23px', height:'38px'}} src={marker} alt="X" />
           </div>
         </GoogleMapReact> 
     </div>
