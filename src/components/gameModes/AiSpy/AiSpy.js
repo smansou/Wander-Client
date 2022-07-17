@@ -70,8 +70,8 @@ function AiSpy() {
       // const classifier = await ml5.imageClassifier("MobileNet");
       const classifier = await ml5.objectDetector("CocoSsd");
       // setModel(classifier);
-      const results = await classifier.detect(capture);
       setLoading(false);
+      const results = await classifier.detect(capture);
       if (results.length > 0) setResult(results[0].label);
       setRoundOver(true);
       // const results = await classifier.predict(imgRef.current);
