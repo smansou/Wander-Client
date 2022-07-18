@@ -180,11 +180,11 @@
     opacity: 1;
     -webkit-transition: all var(--speed) ease;
     transition: all var(--speed) ease;
-    animation-name: zoom;
+    /* animation-name: zoom;
     animation-duration: 3s;
     animation-direction: alternate;
     animation-timing-function: linear;
-    animation-iteration-count: infinite;
+    animation-iteration-count: infinite; */
   }
   
   .card:hover .card__image img {
@@ -269,10 +269,10 @@
     align-self: center;
     justify-self: center;
     display: inline-block;
-    font-size: 12px;
-    font-weight: var(--fontLight);
+    font-size: 14px;
+    font-weight: 400;
     text-align: center;
-    letter-spacing: 0.35rem;
+    letter-spacing: 0.15rem;
     color: var(--yellow);
     -webkit-transition: all var(--speed) ease;
     transition: all var(--speed) ease;

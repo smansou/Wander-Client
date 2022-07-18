@@ -16,11 +16,13 @@ export default function SmallMap(props) {
     <div className="splash-map-container">
       <GoogleMapReact
       center={{lat: props.position.lat, lng: props.position.lng}}
+      yesIWantToUseGoogleMapApiInternals = {true}
+      
         options={{
           fullscreenControl: false,
-          draggableCursor:'crosshair',
+          draggableCursor: false,
           zoomControl: false,
-          draggable: false,
+          draggable: true,
           
 }}
         defaultCenter={{ lat: 50, lng: 30 }}
@@ -32,7 +34,7 @@ export default function SmallMap(props) {
           </div>
 
           <div lat={props.position.lat} lng={props.position.lng}>
-              <img style={{width: '23px', height:'38px'}} src={marker} alt="X" />
+              <img className="marker-img" style={{width: '23px', height:'38px'}} src={marker} alt="X" />
           </div>
         </GoogleMapReact> 
     </div>

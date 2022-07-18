@@ -3,9 +3,9 @@
     width: 100%;
     position: absolute;
     /* background-color: black; */
-    opacity: 0.8;
+    opacity: 1;
     backdrop-filter: blur(3px) grayscale(30%) ;
-    background-color: rgba(8, 0, 0, 0.243);   
+    background-color: rgba(0, 0, 8, 0.243);   
      z-index: 7;
 }
 
@@ -13,7 +13,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: rgba(0, 0, 0, 0.872);
+    background-color: rgba(12, 9, 57, 0.936);
     width: 700px;
     height: 500px;
     position: absolute;
@@ -70,9 +70,20 @@ transition: all 200ms; */
     padding: 25px;
     text-align: center;
     margin-bottom: 5px;
-    height: 50px;
+    /* height: 50px; */
+    height: 15%;
 color: var(--yellow) ;
 font-size: 1.4rem;
+}
+.lower-splash{
+display: flex;
+justify-content: center;
+align-items: center;
+    height: 15%;
+    width: 100%;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--yellow);
 }
 
 

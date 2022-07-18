@@ -17,7 +17,7 @@ import Spinner from "../../styled-components/Spinner/Spinner";
 
 export default function LandingPage() {
   const anchorRef = useRef();
-  const { inViewport } = useInViewport( anchorRef );
+  const { inViewport, enterCount } = useInViewport( anchorRef );
   const { loginWithRedirect, isAuthenticated, isLoading } = useAuth0();
     const navigateTo = useNavigate();
     
@@ -28,7 +28,7 @@ export default function LandingPage() {
     
       function Nav(props) {
       return (
-        <nav style={inViewport ? {position: props.position} : {position: props.position} } className="landing-navbar">
+        <nav style={ inViewport ? {position: 'fixed'} : {position: props.position} } className="landing-navbar">
           <div className="logo-container">
           <img onClick={()=>navigateTo('/home')} style={inViewport ? {display: 'block'} : {display: 'none'}} className="logo fadeIn" src={logo} alt="logo" />
           </div>
@@ -44,8 +44,8 @@ export default function LandingPage() {
     return isLoading ? <Spinner />
     : (
       <>
+
       <div className="landing-container">
-        { inViewport &&  <Nav position={'fixed'} />}
         <Nav position={'absolute'} />
 
         <div className="landing-page-1">

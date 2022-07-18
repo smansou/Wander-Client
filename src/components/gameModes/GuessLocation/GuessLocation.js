@@ -19,6 +19,7 @@ function GuessLocation() {
   const [mapActive, setMapActive] = useState(false);
   const [streetviewActive, setStreetviewActive] = useState(false);
   const [position, setPosition] = useState();
+  const [score, setScore] = useState();
   const [roundOver, setRoundOver] = useState(false);
   const [distance, setDistance] = useState();
   const [loading, setLoading] = useState(true);
@@ -35,7 +36,6 @@ useEffect(()=>{
 },[])
   
     const t = setTimeout(() => {
-      // setLoading(false);
       setMapActive(true);
     }, 600);
 
@@ -60,8 +60,8 @@ useEffect(()=>{
       position.lng
     );
     setDistance(distance)
-
-    let score = 1000 - (distance/100);
+      let roundScore = distance > 1000 ? 300+(Math.random()*200) : (2000-distance)+ Math.random()*100;
+    setScore(Math.ceil(roundScore));
     try{
       await axios.patch("https://wander-earth.herokuapp.com/users/inc-games-played", {
       email: userState.userEmail,
@@ -70,6 +70,9 @@ useEffect(()=>{
       email: userState.userEmail,
       score: score,
     });
+   
+    
+
   }catch(err){
     console.log("failed to update score", err);
   }
@@ -87,7 +90,13 @@ useEffect(()=>{
     {loading && <Spinner />}
         <Statnav />
       <div className="game-wrapper">
-        {roundOver && <RoundOverSplash text1={'Continue'}  callback1={()=>{fetchMaps(); setRoundOver(false)}}  title={`Well Done! You were ${Math.floor(distance)} KM away`}  middle={<SplashMap  position={position} />} />}
+        {roundOver && <RoundOverSplash 
+        text1={'Continue'}  
+        callback1={()=>{fetchMaps(); setRoundOver(false)}} 
+         title={`You were ${Math.floor(distance)} KM away!`} 
+         lower={'Score:  ' + Math.ceil(score)}
+          middle={<SplashMap   position={position} />} 
+          />}
           <Streetview email={userState.userEmail} position={position} />
       
       </div>

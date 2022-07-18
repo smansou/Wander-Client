@@ -29,7 +29,6 @@ export default function Homepage() {
   if (!isAuthenticated) {
     navigateTo("/");
   }
-
   return isLoading ? (
     <Spinner />
   ) : (
@@ -54,6 +53,7 @@ export default function Homepage() {
           <h2 id="white">Teleport And Explore!</h2>
         </div>
         <div className="globe-wrapper-homepage">
+          
           <GlobeGl />
            </div>
         

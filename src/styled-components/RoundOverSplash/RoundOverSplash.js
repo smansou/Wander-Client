@@ -13,6 +13,7 @@ export default function RoundOverSplash(props) {
         <div className="splash-container">
             <div className="upper-splash">{props.title}</div>
             <div className="middle-splash">{props.middle} </div>
+            <div className="lower-splash">{props.lower} </div>
             
             <div className="splash-btn-container">
             <button className='splash-btn btn1 splash-continue' onClick={props.callback1}> <span>{props.text1}</span></button>
