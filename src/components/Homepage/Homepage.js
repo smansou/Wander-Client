@@ -25,7 +25,7 @@ export default function Homepage() {
   const navigateTo = useNavigate();
   const globalState = useContext(GlobalContext);
   const { userState, setUserState } = globalState;
-  const { inViewport } = useInViewport( anchorRef );
+  const { inViewport, enterCount } = useInViewport( anchorRef );
   if (!isAuthenticated) {
     navigateTo("/");
   }
@@ -72,7 +72,7 @@ export default function Homepage() {
           />
         </div>
         <div  className="ui inverted horizontal divider">Classic</div>
-        <div ref={anchorRef} className="cards-container">
+        <div ref={anchorRef} className={`cards-container ${(inViewport && (enterCount<=2))&& 'animateUp'}`} >
         <Link to={"/guesslocation/world"}>
           <AnimatedCard
             roundImage={nyPic}
@@ -80,7 +80,6 @@ export default function Homepage() {
             secondaryText="Spawn in a random location, guess where you are!"
             innerText="even more info"
             bgImage="https://c1.staticflickr.com/4/3935/32253842574_d3d449ab86_c.jpg"
-            animationName='animateRight'
           />
           </Link>
           
@@ -91,7 +90,6 @@ export default function Homepage() {
             secondaryText="Spawn in a world capital, guess where you are!"
             innerText="even more info"
             bgImage={sydneyPic}
-            animationName='animateUp'
           />
           </Link>
           
@@ -102,7 +100,6 @@ export default function Homepage() {
             secondaryText="Can you withstand the harshness of these destinations?"
             innerText="even more info"
             bgImage={tropicsPic}
-            animationName='animateLeft'
           />
           </Link>
           

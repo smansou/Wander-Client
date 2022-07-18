@@ -8,7 +8,7 @@ export default function Statnav(props) {
   const navigateTo = useNavigate();
   return (
     <div className='stat-nav-container'>
-        <img onClick={()=>navigateTo('/home')}  src={logo} alt="logo" />
+        <img className='statnav-img' onClick={()=>navigateTo('/home')}  src={logo} alt="logo" />
         <div className="nav-stats">
         <div className="navstat 1">{props.stat1}</div>
         <div className="navstat 2">{props.stat2}</div>

@@ -3,6 +3,7 @@ import "./streetview.css";
 import ReactStreetview from "react-google-streetview";
 import axios from 'axios';
 import { GlobalContext } from '../providers/GlobalState';
+import Statnav from '../../styled-components/stat-navbar/Statnav';
 
 
 
@@ -26,18 +27,22 @@ const incDistanceTravelled =  async() =>{
     counter = 0;
     await axios.patch('https://wander-earth.herokuapp.com/users/inc-distance', {
       email: userState.userEmail,
-      distanceTravelled: 0.28
+      distanceTravelled: 0.1
   })
 }
 }
 
   return (
     <div className="streetview">
-        <ReactStreetview
+    <Statnav />
+    <div style={{height:'100%', width:'100%'}}>
+    <ReactStreetview
         onPositionChanged={()=>{incDistanceTravelled(); counter=counter+1}}
     apiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY}
     streetViewPanoramaOptions={streetViewPanoramaOptions}
   />
+    </div>
+    
     </div>
     
   )

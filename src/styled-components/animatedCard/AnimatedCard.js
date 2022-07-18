@@ -4,12 +4,12 @@ import {useInViewport} from 'react-in-viewport';
 
 export default function AnimatedCard(props) {
   const myRef = useRef();
-    const {inViewport } = useInViewport( myRef );
+    const {inViewport, enterCount } = useInViewport( myRef );
   
 
   return (
    
-  <div ref={myRef} className={`card ${inViewport && props.animationName}`} data-effect="zoom">
+  <div ref={myRef} className={`card ${(inViewport && (enterCount<=2)) && props.animationName}`} data-effect="zoom">
    
     <figure  className="card__image">
       <img src={props.bgImage}/>
