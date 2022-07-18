@@ -26,6 +26,10 @@
     width: 100%;
     margin: 0 20px;
 }
+.statnav-img{
+height: 40px;
+
+}
 
 @media(max-width:780px){
 

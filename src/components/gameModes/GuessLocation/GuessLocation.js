@@ -88,7 +88,7 @@ useEffect(()=>{
   return (
     <>
     {loading && <Spinner />}
-      <div onClick={console.log(position)} className="game-wrapper">
+      <div className="game-wrapper">
         {roundOver && <RoundOverSplash 
         text1={'Continue'}  
         callback1={()=>{fetchMaps(); setRoundOver(false)}} 
